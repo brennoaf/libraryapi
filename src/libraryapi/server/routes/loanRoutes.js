@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Loan, User, Book } = require('../../models');
+const { Loan, User, Book } = require('../../../models');
 
 router.post('/', async (req, res) => {
     const { user_id, book_id, loan_date, due_date } = req.body;

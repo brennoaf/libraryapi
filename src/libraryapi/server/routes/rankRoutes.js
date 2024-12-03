@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Loan, Book } = require('../../models');
+const { Loan, Book } = require('../../../models');
 const sequelize = require('sequelize');
 
 router.get('/loans', async (req, res) => {
