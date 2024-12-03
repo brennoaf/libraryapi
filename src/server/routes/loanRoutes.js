@@ -52,6 +52,34 @@ router.put('/:id', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    try {
+        const loan = await Loan.findAll({
+            where: { id: req.params.id },
+            include: [
+                {
+                    model: User,
+                    as: 'user',
+                },
+                {
+                    model: Book,
+                    as: 'book',
+                },
+            ],
+        });
+
+        if (!loan) {
+            return res.status(404).json({ message: 'Empréstimo não encontrado.' });
+        }
+
+        return res.status(200).json(loan);
+
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+
+    }
+});
+
 router.get('/', async (req, res) => {
     try {
         const loans = await Loan.findAll({
@@ -72,6 +100,27 @@ router.get('/', async (req, res) => {
         return res.status(500).json({ error: error.message });
     }
 });
+
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const loan = await Loan.findByPk(id);
+
+        if (!loan) {
+            return res.status(404).json({ message: 'Empréstimo não encontrado.' });
+        }
+
+        await loan.destroy();
+
+        return res.status(200).json({ message: 'Empréstimo deletado com sucesso.' });
+
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+        
+    }
+});
+
 
 
 
