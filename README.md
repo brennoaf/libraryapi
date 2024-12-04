@@ -56,7 +56,8 @@ Rode as migrações para criar as tabelas no banco de dados
 
 Execute o projeto
 ```bash
-   npm start
+   cd src/libraryapi/server/config
+   node server
 ```
 
 ---
