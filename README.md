@@ -92,7 +92,7 @@ Para mais detalhes, veja o arquivo [`CONTRIBUTING.md`](./CONTRIBUTING.md).
 
 ## Licença
 
-Este projeto está licenciado sob a licença [MIT](./LICENSE).
+Este projeto está licenciado sob a licença [Creative Commons](./LICENSE).
 
 ---
 
